@@ -10,15 +10,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <header>  <!--Area for Score area, start button, and help information.-->
-        <div id="score_area"><!--Score Area -->
-
+    <header class="row">  <!--Area for Score area, start button, and help information.-->
+        <div id="score_area" class="col-4"><!--Score Area -->
+            Score
         </div>
-        <button id="start_button"> <!--Start Button-->
-
-        </button>
-        <div id="Help_Area"> <!--Help-->
-
+        <div class="col-4">
+            <button id="start_button" type="button" class="btn btn-primary btn-lg"> <!--Start Button-->
+                Start
+            </button>
+        </div>
+        <div id="Help_Area" class="col-4"> <!--Help-->
+            Help
         </div>
     </header>
     <div> <!--Main game Area-->
