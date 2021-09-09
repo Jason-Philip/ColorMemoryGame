@@ -1,5 +1,5 @@
 .square {
-  height: 200px;
+  height: 160px;
   background-color: rgb(235, 241, 240);
   border: black solid 5px;
   border-radius: 5%;
@@ -7,7 +7,34 @@
 }
 
 .challenge_area {
-  width: 600px;
+  width: 480px;
   display: block;
   margin: 5px auto;
+}
+
+#current_color {
+  background-color: grey;
+  border: black 2px solid;
+  margin-top: 15px;
+  width: 150px;
+  height: 40px;
+  display: block;
+  margin: 15px auto;
+  text-align: center;
+}
+
+#paintbrush_area {
+  margin: 15px auto;
+  text-align: center;
+}
+
+/* Basic colors for paintbrush selection*/
+.blue{
+  color: blue;
+}
+.red{
+  color: red;
+}
+.green{
+  color: green;
 }
