@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(250, 248, 245);
+}
+
 .square {
   height: 160px;
   background-color: rgb(235, 241, 240);
@@ -14,19 +18,41 @@
 
 #current_color {
   color: azure;
-  border: black 2px solid;
+  border: black 4px solid;
   margin-top: 15px;
-  width: 150px;
-  height: 40px; 
+  width: 160px;
+  height: 45px; 
   display: block;
   margin: 15px auto;
   text-align: center;
+  font-size: large;
+  padding-top: 3px;
 }
 
 #paintbrush_area {
   margin: 15px auto;
   text-align: center;
+  cursor: pointer;
 }
+
+#Help_Area {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 25px;
+}
+
+#start_button {
+  display: block;
+  margin: 20px auto;
+  font-size: 30px;
+  background-color: rgb(37, 158, 22);
+  border-radius: 10%;
+  width: 120px;
+}
+
+
 
 /* Basic colors for paintbrush selection*/
 .blue{
