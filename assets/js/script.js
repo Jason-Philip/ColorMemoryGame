@@ -28,19 +28,20 @@ function triggerPattern() {
         let whichTile = squareSequence[i];
         let idOfTile = "#square_" + whichTile;
         console.log(idOfTile);
-        flashSquarePattern(idOfTile);
+        flashSquarePattern(i, idOfTile);
     }
 }
 
 /*Flash Square Pattern*/
-function flashSquarePattern(idTile) {
+function flashSquarePattern(n, idTile) {
     let v = $(idTile);
     console.log(v);
-    v.addClass("square_clicked");
-
+    setTimeout(function () {
+        v.addClass("square_clicked");
+        }, 3000*n)
     setTimeout(function () {
         v.removeClass("square_clicked");
-        }, 700); 
+        }, 2500*(n+1)+(500*n)); 
 }
 
 /*Occurs when user clicks a square triggerring a highlight of the selected color*/
