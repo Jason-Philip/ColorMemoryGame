@@ -7,6 +7,7 @@ let userEntryColor = [];
 /* Triggered when start in clicked allowing the game to begin*/
 function startGame() {
     createPattern();
+    triggerPattern();
 }
 /* Creates random pattern and records it to lists*/
 function createPattern() {
@@ -117,7 +118,6 @@ function changeColor() {
     } 
 }
 
-
 /*Event listeners*/ 
 let brushes = $(".fa-paint-brush");
 for (let i = 0; i < 3; i++) {
@@ -130,5 +130,3 @@ for (let i = 0; i < 9; i++) {
     squares[i].addEventListener("click", UserAttempt);
 }
 
-createPattern();
-triggerPattern();
