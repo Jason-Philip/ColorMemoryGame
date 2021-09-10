@@ -35,12 +35,13 @@ function triggerPattern() {
 /*Flash Square Pattern*/
 function flashSquarePattern(n, idTile) {
     let v = $(idTile);
+    let colorNow = colorSequence[n] + "_background"
     console.log(v);
     setTimeout(function () {
-        v.addClass("square_clicked");
+        v.addClass(colorNow);
         }, 3000*n)
     setTimeout(function () {
-        v.removeClass("square_clicked");
+        v.removeClass(colorNow);
         }, 2500*(n+1)+(500*n)); 
 }
 
