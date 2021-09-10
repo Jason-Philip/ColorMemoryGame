@@ -1,7 +1,8 @@
 let colors = ["blue", "red", "green"]
 let colorSequence = [];
 let squareSequence = [];
-
+let userEntryPosition = [];
+let userEntryColor = [];
 
 /* Triggered when start in clicked allowing the game to begin*/
 function startGame() {
@@ -56,9 +57,41 @@ function flashSquareClick() {
         }}, 350);
 }
 
+/*Process after Sequence has run allowing guesses by user*/
+function UserAttempt() {
+    let position = this.id;
+    a = position.charAt(position.length-1);
+    userEntryPosition.push(a);
+    userEntryColor.push(currentColor);
+    console.log(userEntryPosition);
+    console.log(userEntryColor);
+
+    checkRight();
+}
+
 /* Compares pattern enterred so far with produced pattern*/
 function checkRight() {
-
+    let correctPosition = false;
+    let correctColor = false;
+    for (where in userEntryPosition){
+        if (userEntryPosition[where]==squareSequence[where]){
+            correctPosition = true;
+        }  else {
+            correctPosition = false;
+            break
+        }
+    }
+    console.log(correctPosition);
+    for (color in userEntryColor){
+        if (userEntryColor[color]==colorSequence[color]){
+            correctColor = true;
+        }  else {
+            correctColor = false;
+            break
+        }
+    }
+    console.log(correctColor);
+    return correctPosition, correctColor;
 }
 /* Triggered when the enterred color/pattern is incorrect and offer try again*/
 function WrongEntry() {
@@ -94,6 +127,7 @@ for (let i = 0; i < 3; i++) {
 let squares = $(".square");
 for (let i = 0; i < 9; i++) {
     squares[i].addEventListener("click", flashSquareClick);
+    squares[i].addEventListener("click", UserAttempt);
 }
 
 createPattern();
