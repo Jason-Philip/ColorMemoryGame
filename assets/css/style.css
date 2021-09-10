@@ -13,11 +13,11 @@
 }
 
 #current_color {
-  background-color: grey;
+  color: azure;
   border: black 2px solid;
   margin-top: 15px;
   width: 150px;
-  height: 40px;
+  height: 40px; 
   display: block;
   margin: 15px auto;
   text-align: center;
@@ -37,6 +37,16 @@
 }
 .green{
   color: green;
+}
+
+.blue_background{
+  background-color: blue;
+}
+.red_background{
+  background-color: red;
+}
+.green_background{
+  background-color: green;
 }
 
 .square_clicked {

@@ -67,7 +67,27 @@ function RightEntry() {
     
 }
 
-squares = $(".square")
+let currentColor = "";
+function changeColor() {
+    $("#current_color").removeClass("blue_background").removeClass("red_background").removeClass("green_background");
+    if ($(this).hasClass("blue")){
+        currentColor = "blue";
+        $("#current_color").addClass("blue_background");
+    } if ($(this).hasClass("red")){
+        currentColor = "red";
+        $("#current_color").addClass("red_background");
+    } if ($(this).hasClass("green")){
+        currentColor = "green";
+        $("#current_color").addClass("green_background");
+    } 
+}
+
+let brushes = $(".fa-paint-brush");
+for (let i = 0; i < 3; i++) {
+    brushes[i].addEventListener("click", changeColor);
+}
+
+let squares = $(".square");
 for (let i = 0; i < 9; i++) {
     squares[i].addEventListener("click", flashSquareClick);
 }
