@@ -38,3 +38,7 @@
 .green{
   color: green;
 }
+
+.square_clicked {
+  background-color: pink;
+}

@@ -28,8 +28,14 @@ function triggerPattern() {
 }
 /*Occurs when user clicks a square triggerring a highlight of the selected color*/
 function flashSquare() {
+    this.classList.add("square_clicked");
 
+    setTimeout(function () {
+        for (let i = 0; i < 9; i++) {
+            squares[i].classList.remove("square_clicked");
+        }}, 350);
 }
+
 /* Compares pattern enterred so far with produced pattern*/
 function checkRight() {
 
@@ -43,3 +49,7 @@ function RightEntry() {
     
 }
 
+squares = $(".square")
+for (let i = 0; i < 9; i++) {
+    squares[i].addEventListener("click", flashSquare);
+}
