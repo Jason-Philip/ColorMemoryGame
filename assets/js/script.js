@@ -46,11 +46,12 @@ function flashSquarePattern(n, idTile) {
 
 /*Occurs when user clicks a square triggerring a highlight of the selected color*/
 function flashSquareClick() {
-    this.classList.add("square_clicked");
+    let colorIt = currentColor + "_background";
+    this.classList.add(colorIt);
 
     setTimeout(function () {
         for (let i = 0; i < 9; i++) {
-            squares[i].classList.remove("square_clicked");
+            squares[i].classList.remove(colorIt);
         }}, 350);
 }
 
@@ -82,6 +83,8 @@ function changeColor() {
     } 
 }
 
+
+/*Event listeners*/ 
 let brushes = $(".fa-paint-brush");
 for (let i = 0; i < 3; i++) {
     brushes[i].addEventListener("click", changeColor);
