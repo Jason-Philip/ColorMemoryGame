@@ -2,7 +2,7 @@ let colors = ["blue", "red", "green"]
 let colorSequence = [];
 let squareSequence = [];
 
-
+createPattern();
 /* Triggered when start in clicked allowing the game to begin*/
 function startGame() {
     createPattern();
@@ -14,7 +14,13 @@ function createPattern() {
 
         colorSequence.push(randColor);
     }
-    console.log(colorSequence); 
+    console.log(colorSequence);
+    for (let i = 0; i < 5; i++) {
+        let randtile = Math.floor(Math.random() * 9);
+
+        squareSequence.push(randtile);
+    console.log(squareSequence);
+    } 
 }
 /*Pattern occurs with random colors in random sequence*/
 function triggerPattern() {
