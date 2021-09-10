@@ -1,11 +1,20 @@
+let colors = ["blue", "red", "green"]
+let colorSequence = [];
+let squareSequence = [];
+
 
 /* Triggered when start in clicked allowing the game to begin*/
 function startGame() {
-
+    createPattern();
 }
-/* Creates random pattern and records it to dictionary*/
-function CreatePattern() {
-    
+/* Creates random pattern and records it to lists*/
+function createPattern() {
+    for (let i = 0; i < 5; i++) {
+        let randColor = colors[Math.floor(Math.random() * 3)];
+
+        colorSequence.push(randColor);
+    }
+    console.log(colorSequence); 
 }
 /*Pattern occurs with random colors in random sequence*/
 function triggerPattern() {
