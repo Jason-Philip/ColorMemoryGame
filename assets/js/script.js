@@ -2,9 +2,7 @@ let colors = ["blue", "red", "green"]
 let colorSequence = [];
 let squareSequence = [];
 
-createPattern();
-triggerPattern();
-console.log("working");
+
 /* Triggered when start in clicked allowing the game to begin*/
 function startGame() {
     createPattern();
@@ -28,12 +26,25 @@ function createPattern() {
 function triggerPattern() {
     for (let i = 0; i < 5; i++) {
         let whichTile = squareSequence[i];
-        let idOfTile = "square_" + whichTile;
+        let idOfTile = "#square_" + whichTile;
         console.log(idOfTile);
+        flashSquarePattern(idOfTile);
     }
 }
+
+/*Flash Square Pattern*/
+function flashSquarePattern(idTile) {
+    let v = $(idTile);
+    console.log(v);
+    v.addClass("square_clicked");
+
+    setTimeout(function () {
+        v.removeClass("square_clicked");
+        }, 700); 
+}
+
 /*Occurs when user clicks a square triggerring a highlight of the selected color*/
-function flashSquare() {
+function flashSquareClick() {
     this.classList.add("square_clicked");
 
     setTimeout(function () {
@@ -57,5 +68,8 @@ function RightEntry() {
 
 squares = $(".square")
 for (let i = 0; i < 9; i++) {
-    squares[i].addEventListener("click", flashSquare);
+    squares[i].addEventListener("click", flashSquareClick);
 }
+
+createPattern();
+triggerPattern();
