@@ -3,6 +3,8 @@ let colorSequence = [];
 let squareSequence = [];
 
 createPattern();
+triggerPattern();
+console.log("working");
 /* Triggered when start in clicked allowing the game to begin*/
 function startGame() {
     createPattern();
@@ -24,7 +26,11 @@ function createPattern() {
 }
 /*Pattern occurs with random colors in random sequence*/
 function triggerPattern() {
-
+    for (let i = 0; i < 5; i++) {
+        let whichTile = squareSequence[i];
+        let idOfTile = "square_" + whichTile;
+        console.log(idOfTile);
+    }
 }
 /*Occurs when user clicks a square triggerring a highlight of the selected color*/
 function flashSquare() {
