@@ -7,8 +7,11 @@
     <title>Color and Memory Challenge</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
     <header class="row">  <!--Area for Score area, start button, and help information.-->
@@ -20,10 +23,46 @@
                 Start
             </button>
         </div>
-        <div id="Help_Area" class="col-4"> <!--Help-->
-            <i class="fa fa-info-circle fa-xl" aria-hidden="true"></i>Help
+        <div id="Help_Area" class="col-4" > <!--Help-->
+            <a data-toggle="modal" data-target="#myModal"> <!--Information and help triggered Modal-->
+                <i class="fa fa-info-circle fa-xl" aria-hidden="true"></i>Help
+            </a>       
+        </div>
+            
+        <!-- The Modal for help -->
+        <!-- Information on how to use modals from w3schools-->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Welcome to the Game!</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+  
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <p>Ready to challenge yourself?  You've Come to the right place!</p>
+                        <h5>The Instrutions</h5>
+                        <ul>
+                            <li>Once start is pressed a sequence of squares will light up with the colors of blue, red or green.</li>
+                            <li>Your job is to remember both the position and the color of this sequence.</li>
+                            <li>Once the sequence ends it is your turn.  Select the correct colours, using the paintbrushes and press the corresponding squares in the correct order.</li>
+                            <li>If you get the order right, congratulations!  Try a higher difficulty and test your upper limits.</li>
+                            <li>If not, no sweat.  Practice and you'll get better.</li>
+                        </ul>
+                    </div>
+  
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+  
+                </div>
+            </div>
         </div>
     </header>
+
     <div class="challenge_area"> <!--Main game Area-->
         <div class="row">
             <div id="square_0" class="square col-4"></div>

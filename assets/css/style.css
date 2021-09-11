@@ -43,6 +43,10 @@ body {
   font-size: 25px;
 }
 
+a {
+  cursor: pointer;
+}
+
 #start_button {
   display: block;
   margin: 20px auto;
