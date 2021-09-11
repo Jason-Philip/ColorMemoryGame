@@ -36,6 +36,8 @@ function createPattern() {
 }
 /*Pattern occurs with random colors in random sequence*/
 function triggerPattern() {
+    a = []  /*Arrays for the purpose of cancelling flashes in stopFlash()*/
+    b = []
     for (let i = 0; i < 5; i++) {
         let whichTile = squareSequence[i];
         let idOfTile = "#square_" + whichTile;
@@ -49,10 +51,11 @@ function flashSquarePattern(n, idTile) {
     let v = $(idTile);
     let colorNow = colorSequence[n] + "_background"
     console.log(v);
-    setTimeout(function () {
+
+    a[n] = setTimeout(function () {
         v.addClass(colorNow);
         }, 1000*n)
-    setTimeout(function () {
+    b[n] = setTimeout(function () {
         v.removeClass(colorNow);
         }, 500*(n+1)+(500*n)); 
 }
@@ -159,6 +162,17 @@ function changeColor() {
         currentColor = "green";
         $("#current_color").addClass("green_background");
     } 
+}
+
+/*Cancels all flashes and prevents the sequence playing*/
+function stopFlash() {
+    $(".square").removeClass("red_background").removeClass("green_background").removeClass("blue_background");
+    for (let i = 0; i < 5; i++) {
+        clearTimeout(a[i]);
+    }
+    for (let i = 0; i < 5; i++) { 
+        clearTimeout(b[i]);
+    }
 }
 
 /*Event listeners*/ 
