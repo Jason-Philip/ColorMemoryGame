@@ -16,8 +16,18 @@ function startGame() {
     modal1.style.display = "none";
     modal2.style.display = "none";
 
+    for (let i = 0; i < 9; i++) {  /*Prevents interference from user when pattern plays.*/
+        squares[i].removeEventListener("click", flashSquareClick);
+        squares[i].removeEventListener("click", UserAttempt);
+    }
     createPattern();
     triggerPattern();
+    for (let i = 0; i < 9; i++) {
+        setTimeout(function () {
+            squares[i].addEventListener("click", flashSquareClick);
+            squares[i].addEventListener("click", UserAttempt);
+            }, 500*(5+1)+(500*5))
+    }
 }
 /* Creates random pattern and records it to lists*/
 function createPattern() {
