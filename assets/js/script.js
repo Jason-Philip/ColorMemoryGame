@@ -8,12 +8,14 @@ let modal2 = document.getElementById("winModal");
 
 /* Triggered when start in clicked allowing the game to begin*/
 function startGame() {
+    /*Reseting*/
     colorSequence = [];
     squareSequence = [];
     userEntryPosition = [];
     userEntryColor = [];
     modal1.style.display = "none";
     modal2.style.display = "none";
+
     createPattern();
     triggerPattern();
 }
@@ -112,18 +114,36 @@ function checkRight() {
     returnedArray.push(correctPosition);
     return returnedArray;
 }
-/* Triggered when the enterred color/pattern is incorrect and offer try again*/
+/* Triggered when the enterred color/pattern is incorrect and offer try again or close*/
 function WrongEntry() {
     modal1.style.display = "block";
 }
-/* Triggered when the enterred color/pattern is correct and offer try again*/
+/* Triggered when the enterred color/pattern is correct and offer increase level or close*/
 function RightEntry() {
     modal2.style.display = "block";
 }
 
+/* Closes the modals on close button click*/
 function CloseReset() {
     modal1.style.display = "none";
     modal2.style.display = "none";
+}
+
+/*Change the Start Button to stop*/
+function startToStop() {
+    let buttonChanged = $("#start_button");
+    buttonChanged.hide();
+    let buttonAppear = $("#stop_button");
+    buttonAppear.show();
+    buttonAppear.css({"display":"block"});
+}
+
+/*Change the Stop button to Start*/
+function stopToStart() {
+    let buttonChanged = $("#start_button");
+    buttonChanged.show();
+    let buttonAppear = $("#stop_button");
+    buttonAppear.hide();
 }
 
 let currentColor = "";
@@ -140,8 +160,6 @@ function changeColor() {
         $("#current_color").addClass("green_background");
     } 
 }
-
-
 
 /*Event listeners*/ 
 let brushes = $(".fa-paint-brush");

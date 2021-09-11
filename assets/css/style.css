@@ -56,7 +56,14 @@ a {
   width: 120px;
 }
 
-
+#stop_button {
+  display: none;
+  margin: 20px auto;
+  font-size: 30px;
+  background-color: rgb(206, 97, 97);
+  border-radius: 10%;
+  width: 120px;
+}
 
 /* Basic colors for paintbrush selection*/
 .blue{
