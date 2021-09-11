@@ -66,8 +66,15 @@ function UserAttempt() {
     userEntryColor.push(currentColor);
     console.log(userEntryPosition);
     console.log(userEntryColor);
-
-    checkRight();
+    
+    let checkArray = checkRight();
+    if (userEntryPosition.length==squareSequence.length){
+        if (checkArray[0]&&checkArray[1]) {
+            setTimeout(RightEntry(), 500); 
+        } else {
+            setTimeout(WrongEntry(), 500);
+        }   
+    }
 }
 
 /* Compares pattern enterred so far with produced pattern*/
@@ -92,15 +99,20 @@ function checkRight() {
         }
     }
     console.log(correctColor);
-    return correctPosition, correctColor;
+    var returnedArray = [];
+    returnedArray.push(correctColor);
+    returnedArray.push(correctPosition);
+    return returnedArray;
 }
 /* Triggered when the enterred color/pattern is incorrect and offer try again*/
 function WrongEntry() {
-
+    let modal = document.getElementById("loseModal");
+    modal.style.display = "block";
 }
 /* Triggered when the enterred color/pattern is correct and offer try again*/
 function RightEntry() {
-    
+    let modal = document.getElementById("winModal");
+    modal.style.display = "block";
 }
 
 let currentColor = "";
@@ -129,6 +141,3 @@ for (let i = 0; i < 9; i++) {
     squares[i].addEventListener("click", flashSquareClick);
     squares[i].addEventListener("click", UserAttempt);
 }
-
-let modal = document.getElementById("winModal");
-modal.style.display = "block";
