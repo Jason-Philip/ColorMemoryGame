@@ -130,6 +130,7 @@ function RightEntry() {
 function CloseReset() {
     modal1.style.display = "none";
     modal2.style.display = "none";
+    stopToStart()
 }
 
 /*Change the Start Button to stop*/
