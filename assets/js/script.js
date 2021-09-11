@@ -3,9 +3,17 @@ let colorSequence = [];
 let squareSequence = [];
 let userEntryPosition = [];
 let userEntryColor = [];
+let modal1 = document.getElementById("loseModal");
+let modal2 = document.getElementById("winModal");
 
 /* Triggered when start in clicked allowing the game to begin*/
 function startGame() {
+    colorSequence = [];
+    squareSequence = [];
+    userEntryPosition = [];
+    userEntryColor = [];
+    modal1.style.display = "none";
+    modal2.style.display = "none";
     createPattern();
     triggerPattern();
 }
@@ -41,10 +49,10 @@ function flashSquarePattern(n, idTile) {
     console.log(v);
     setTimeout(function () {
         v.addClass(colorNow);
-        }, 3000*n)
+        }, 1000*n)
     setTimeout(function () {
         v.removeClass(colorNow);
-        }, 2500*(n+1)+(500*n)); 
+        }, 500*(n+1)+(500*n)); 
 }
 
 /*Occurs when user clicks a square triggerring a highlight of the selected color*/
@@ -106,13 +114,16 @@ function checkRight() {
 }
 /* Triggered when the enterred color/pattern is incorrect and offer try again*/
 function WrongEntry() {
-    let modal = document.getElementById("loseModal");
-    modal.style.display = "block";
+    modal1.style.display = "block";
 }
 /* Triggered when the enterred color/pattern is correct and offer try again*/
 function RightEntry() {
-    let modal = document.getElementById("winModal");
-    modal.style.display = "block";
+    modal2.style.display = "block";
+}
+
+function CloseReset() {
+    modal1.style.display = "none";
+    modal2.style.display = "none";
 }
 
 let currentColor = "";
@@ -124,11 +135,13 @@ function changeColor() {
     } if ($(this).hasClass("red")){
         currentColor = "red";
         $("#current_color").addClass("red_background");
-    } if ($(this).hasClass("green")){
+    } if ($(this).hasClass("green")){ 
         currentColor = "green";
         $("#current_color").addClass("green_background");
     } 
 }
+
+
 
 /*Event listeners*/ 
 let brushes = $(".fa-paint-brush");

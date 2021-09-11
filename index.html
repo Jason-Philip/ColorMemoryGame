@@ -90,6 +90,7 @@
        <div id="current_color"> Selected Color </div><!--Current color selected-->
     </div>
 
+    <!-- Modals -->
     <!-- The Modal for Success -->
     <!-- Information on how to use modals from w3schools-->
         <div class="modal" id="winModal">
@@ -105,12 +106,33 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Next Level</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" onclick="startGame()"  data-dismiss="modal">Next Level</button>
+                        <button type="button" class="btn btn-danger" onclick="CloseReset()" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
+    <!-- The Modal for Success -->
+    <!-- Information on how to use modals from w3schools-->
+    <div class="modal" id="loseModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Sorry, Thats not right.</h4>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>Better luck next time, you got <span></span> Try again?</p>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="startGame()" data-dismiss="modal">Try Again?</button>
+                    <button type="button" class="btn btn-danger" onclick="CloseReset()" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
 </body>
