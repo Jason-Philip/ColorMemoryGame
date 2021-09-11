@@ -129,3 +129,6 @@ for (let i = 0; i < 9; i++) {
     squares[i].addEventListener("click", flashSquareClick);
     squares[i].addEventListener("click", UserAttempt);
 }
+
+let modal = document.getElementById("winModal");
+modal.style.display = "block";
