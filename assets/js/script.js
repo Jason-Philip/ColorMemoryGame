@@ -167,7 +167,7 @@ function stopToStart() {
     current.innerHTML = "--";
 }
 
-let currentColor = "";
+let currentColor = "red";
 function changeColor() {
     $("#current_color").removeClass("blue_background").removeClass("red_background").removeClass("green_background");
     if ($(this).hasClass("blue")){
