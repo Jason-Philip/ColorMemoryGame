@@ -16,6 +16,7 @@ function startGame() {
     modal1.style.display = "none";
     modal2.style.display = "none";
 
+    current.innerHTML = difficulty;
     for (let i = 0; i < 9; i++) {  /*Prevents interference from user when pattern plays.*/
         squares[i].removeEventListener("click", flashSquareClick);
         squares[i].removeEventListener("click", UserAttempt);
@@ -135,6 +136,10 @@ function WrongEntry() {
 /* Triggered when the enterred color/pattern is correct and offer increase level or close*/
 function RightEntry() {
     modal2.style.display = "block";
+    if (best.innerHTML < current.innerHTML) {
+        best.innerHTML = current.innerHTML;
+    }
+    
 }
 
 /* Closes the modals on close button click*/
@@ -159,6 +164,7 @@ function stopToStart() {
     buttonChanged.show();
     let buttonAppear = $("#stop_button");
     buttonAppear.hide();
+    current.innerHTML = "--";
 }
 
 let currentColor = "";
@@ -201,6 +207,8 @@ for (let i = 0; i < 9; i++) {
 
 let slider = document.getElementById("slider");
 let output = document.getElementById("showDif");
+let best = document.getElementById("sequence_best");
+let current = document.getElementById("sequence_current");
 output.innerHTML = slider.value; // Display the default slider value
 difficulty = Number(slider.value);
 
