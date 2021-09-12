@@ -197,3 +197,12 @@ for (let i = 0; i < 9; i++) {
     squares[i].addEventListener("click", flashSquareClick);
     squares[i].addEventListener("click", UserAttempt);
 }
+
+let slider = document.getElementById("slider");
+let output = document.getElementById("showDif");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+    output.innerHTML = this.value;
+}
