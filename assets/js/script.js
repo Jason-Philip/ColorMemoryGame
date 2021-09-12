@@ -27,7 +27,7 @@ function startGame() {
         setTimeout(function () {
             squares[i].addEventListener("click", flashSquareClick);
             squares[i].addEventListener("click", UserAttempt);
-            }, 500*(difficulty+1)+(500*difficulty))
+            }, 500*(difficulty+1)+(500*difficulty)-1000)
     console.log(500*(difficulty+1)+(500*difficulty));
     }
 }
