@@ -93,11 +93,12 @@ function UserAttempt() {
     console.log(userEntryColor);
     
     let checkArray = checkRight();
+
     if (userEntryPosition.length==squareSequence.length){
         if (checkArray[0]&&checkArray[1]) {
             setTimeout(RightEntry(), 500); 
         } else {
-            setTimeout(WrongEntry(), 500);
+            setTimeout(WrongEntry(checkArray[0], checkArray[1]), 500);
         }   
     }
 }
@@ -130,7 +131,14 @@ function checkRight() {
     return returnedArray;
 }
 /* Triggered when the enterred color/pattern is incorrect and offer try again or close*/
-function WrongEntry() {
+function WrongEntry(one, two) {
+    if (one) {
+        whatWrong.innerHTML = "the color right but the position wrong,"
+    } else if (two) {
+        whatWrong.innerHTML = "the position right but the wrong color,"
+    } else {
+        whatWrong.innerHTML = "both the color and the position wrong,"
+    }
     modal1.style.display = "block";
 }
 /* Triggered when the enterred color/pattern is correct and offer increase level or close*/
@@ -138,8 +146,7 @@ function RightEntry() {
     modal2.style.display = "block";
     if (best.innerHTML < current.innerHTML) {
         best.innerHTML = current.innerHTML;
-    }
-    
+    }  
 }
 
 /* Closes the modals on close button click*/
@@ -216,6 +223,7 @@ let slider = document.getElementById("slider");
 let output = document.getElementById("showDif");
 let best = document.getElementById("sequence_best");
 let current = document.getElementById("sequence_current");
+let whatWrong = document.getElementById("what_wrong");
 output.innerHTML = slider.value; // Display the default slider value
 difficulty = Number(slider.value);
 
