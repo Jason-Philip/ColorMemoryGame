@@ -19,10 +19,6 @@
             Current Sequence:  
             <br>
             Best Sequence:
-            <br>   
-            <label for="slider">Difficulty: <span id="showDif"></span></label
-            ><br>
-            <input type="range" min="2" max="12" value="4" id="slider" step="1">
         </div>
         <div id="button_div" class="col-4">
             <button id="start_button" onclick="startToStop();startGame()" type="button" class="btn btn-primary btn-lg central_btn"> <!--Start Button-->
@@ -31,6 +27,11 @@
             <button id="stop_button" onclick="stopToStart();stopFlash()" type="button" class="btn btn-primary btn-lg central_btn"> <!--Start Button-->
                 Stop
             </button>
+            <div id="slider_area">
+                <label for="slider">Difficulty: <span id="showDif"></span></label>
+                <input type="range" min="2" max="12" value="4" id="slider" step="1">
+            </div>   
+
         </div>
         <div id="Help_Area" class="col-4" > <!--Help-->
             <a data-toggle="modal" data-target="#myModal"> <!--Information and help triggered Modal-->
