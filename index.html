@@ -16,7 +16,26 @@
 <body>
     <header class="row">  <!--Area for Score area, start button, and help information.-->
         <div id="score_area" class="col-4"><!--Score Area -->
-            Score
+            Current Sequence:  
+            <br>
+            Best Sequence:
+            <br>   
+            <label for="slider">Difficulty</label
+            ><br>
+            <input type="range" min="2" max="12" value="4" id="slider" step="1" list="difsettings">
+            <datalist id="difsettings">
+	            <option>2</option>
+	            <option>3</option>
+	            <option>4</option>
+	            <option>5</option>
+	            <option>6</option>
+	            <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+            </datalist>
         </div>
         <div id="button_div" class="col-4">
             <button id="start_button" onclick="startToStop();startGame()" type="button" class="btn btn-primary btn-lg central_btn"> <!--Start Button-->
