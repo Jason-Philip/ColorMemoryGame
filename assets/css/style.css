@@ -47,22 +47,21 @@ a {
   cursor: pointer;
 }
 
-#start_button {
-  display: block;
+.central_btn {
   margin: 20px auto;
   font-size: 30px;
-  background-color: rgb(37, 158, 22);
   border-radius: 10%;
   width: 120px;
 }
 
+#start_button {
+  display: block;
+  background-color: rgb(37, 158, 22);
+}
+ 
 #stop_button {
   display: none;
-  margin: 20px auto;
-  font-size: 30px;
   background-color: rgb(206, 97, 97);
-  border-radius: 10%;
-  width: 120px;
 }
 
 /* Basic colors for paintbrush selection*/
