@@ -149,6 +149,13 @@ function CloseReset() {
     stopToStart()
 }
 
+/*Plays next level if possible*/
+function nextLevel() {
+    difficulty += 1;
+    output.innerHTML = difficulty;
+    startGame();
+}
+
 /*Change the Start Button to stop*/
 function startToStop() {
     let buttonChanged = $("#start_button");
