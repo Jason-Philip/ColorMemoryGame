@@ -26,18 +26,19 @@ function startGame() {
         setTimeout(function () {
             squares[i].addEventListener("click", flashSquareClick);
             squares[i].addEventListener("click", UserAttempt);
-            }, 500*(5+1)+(500*5))
+            }, 500*(difficulty+1)+(500*difficulty))
+    console.log(500*(difficulty+1)+(500*difficulty));
     }
 }
 /* Creates random pattern and records it to lists*/
 function createPattern() {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < difficulty; i++) {
         let randColor = colors[Math.floor(Math.random() * 3)];
 
         colorSequence.push(randColor);
     }
     console.log(colorSequence);
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < difficulty; i++) {
         let randtile = Math.floor(Math.random() * 9);
 
         squareSequence.push(randtile);
@@ -48,7 +49,7 @@ function createPattern() {
 function triggerPattern() {
     a = []  /*Arrays for the purpose of cancelling flashes in stopFlash()*/
     b = []
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < difficulty; i++) {
         let whichTile = squareSequence[i];
         let idOfTile = "#square_" + whichTile;
         console.log(idOfTile);
@@ -178,10 +179,10 @@ function changeColor() {
 /*Cancels all flashes and prevents the sequence playing*/
 function stopFlash() {
     $(".square").removeClass("red_background").removeClass("green_background").removeClass("blue_background");
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < difficulty; i++) {
         clearTimeout(a[i]);
     }
-    for (let i = 0; i < 5; i++) { 
+    for (let i = 0; i < difficulty; i++) { 
         clearTimeout(b[i]);
     }
 }
@@ -201,8 +202,10 @@ for (let i = 0; i < 9; i++) {
 let slider = document.getElementById("slider");
 let output = document.getElementById("showDif");
 output.innerHTML = slider.value; // Display the default slider value
+difficulty = Number(slider.value);
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
     output.innerHTML = this.value;
+    difficulty = Number(this.value);
 }
