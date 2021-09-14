@@ -17,14 +17,17 @@ function startGame() {
     modal2.style.display = "none";
 
     current.innerHTML = difficulty;
+
     for (let i = 0; i < 9; i++) {  /*Prevents interference from user when pattern plays.*/
         squares[i].removeEventListener("click", flashSquareClick);
         squares[i].removeEventListener("click", UserAttempt);
     }
     createPattern();
     triggerPattern();
+
+    p = [];
     for (let i = 0; i < 9; i++) {
-        setTimeout(function () {
+        p[i] = setTimeout(function () {
             squares[i].addEventListener("click", flashSquareClick);
             squares[i].addEventListener("click", UserAttempt);
             }, 500*(difficulty+1)+(500*difficulty)-1000)
@@ -206,6 +209,11 @@ function stopFlash() {
     for (let i = 0; i < difficulty; i++) { 
         clearTimeout(b[i]);
     }
+    for (let i = 0; i < 9; i++) {
+        clearTimeout(p[i]);
+        squares[i].addEventListener("click", flashSquareClick);
+        squares[i].addEventListener("click", UserAttempt);
+    }
 }
 
 /*Event listeners*/ 
@@ -235,4 +243,3 @@ slider.oninput = function() {
 }
 
 window.onload = document.getElementById('btno').click();
-
