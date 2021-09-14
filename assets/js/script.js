@@ -232,3 +232,6 @@ slider.oninput = function() {
     output.innerHTML = this.value;
     difficulty = Number(this.value);
 }
+
+window.onload = document.getElementById('btno').click();
+
