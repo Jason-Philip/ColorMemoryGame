@@ -137,15 +137,49 @@ A sequence and memory testing game that uses a 3x3 grid pattern of squares that 
 
 # Deployment
 
+## Initial Deployment
+
+1.  Logging into my GitHub account and clickng the green button near the top left of the page displaying the text NEW.
+This took me to a page with the option to create a new repository. 
+2. Under repository template I clicked on the code institute template. I chose a name for the repository suitable for the project and then clicked the create repository button.
+3. I opened the new repository and clciked on the green gitpod button to open the workspace for writing and editing my code to develop the site.
 ## GitHub Pages
 
+The project was deployed to GitHub Pages using the following steps:
+
+1.  Logged in to GitHub and clicked on the relelavant [GitHub Repository](https://github.com/Jason-Philip/ColorMemoryGame).
+2.  Found "Settings" button at the top of the repository.
+3.  Scrolled down to the "Pages" section.
+4.  In the source dropdown menu select "master".
+5.  saved and refreshed.
+6.  A message appeared giving a link to the launched site.
 
 ## Forking the GitHub repository
 
+If the GitHub Repository needs forked use the following:
+
+1.  In GitHub locate the correct repository.
+2.  At the top-right among the three buttons, click the "Fork" Button which is the furthest right.
+3.  A copy of the original repository will now be in your account.
+
+More information about forking a GitHub repository is [here](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo).
 
 ## Making a Local Clone
 
-More information about making a local clone of a GitHub repository is available [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+For creating a local clone of the repository, do the following:
+
+1.  Log in to GitHub and locate the project's [GitHub Repository](https://github.com/Jason-Philip/ColorMemoryGame).
+2.  Under the repository name, find and click the "Code" button this will bring up a drop-down area.
+3.  To clone the repository using HTTPS, under "Clone with HTTPS", click the clipboard button to copy the repository URL.
+    To clone using SSH click "Use SSH" and then click the clipboard button.
+4.  Open Git Bash
+5.  Change the current working directory to the location where you want to store the cloned repository.
+6.  Type `git clone` and then paste the URL you copied in Step 3.
+
+3.  Alternatively a zip can be downloaded and extracted and saved locally.
+
+
+More information about making a local clone of a GitHub repository is [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 
 
 # Credits
@@ -164,7 +198,7 @@ More information about making a local clone of a GitHub repository is available 
 
 ### Content
 
--   Inspiration for the idea came [from Human Benchmark](https://humanbenchmark.com/), who have many iteresting challenges and cognitive tests. 
+-   Inspiration for the idea came from [Human Benchmark](https://humanbenchmark.com/), who have many iteresting challenges and cognitive tests. 
 
 ### Acknowledgements
 
