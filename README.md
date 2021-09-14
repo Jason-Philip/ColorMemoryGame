@@ -30,13 +30,13 @@ A sequence and memory testing game that uses a 3x3 grid pattern of squares that 
 
 ## Design
 -   ### Wireframes
-    The wireframes from the initial design stagecan be found [here]()
+    The wireframes from the initial design stage can be found [wireframes](assests/readme-imgs/wireframes.png)
 -   ### Colour Scheme
      
 
 -   ### Features
 
--   ### Future Features
+-   ### Future Features 
 
 ## Technologies Used
 
@@ -65,6 +65,8 @@ A sequence and memory testing game that uses a 3x3 grid pattern of squares that 
     - GitHub is used to store the project's code and any other required files.
 8. [Balsamiq](https://balsamiq.com/)
     - Balsamiq was used to create the wireframes during the design phase of the project.
+9. [Ami.responsivedesign](http://ami.responsivedesign.is)
+    - Am I responsive site was used as a presentation aid in this readme file.
 
 # Testing
 
