@@ -95,3 +95,17 @@ a {
 .green_background{
   background-color: green;
 }
+
+/*Media Queries for Responsive Design*/
+@media screen and (max-width: 576px) {
+  .challenge_area {
+    width: 330px;
+  }
+  .square {
+    height: 110px;
+  }
+  #score_area {
+    text-align: left;
+    left: 10px;
+  }
+}

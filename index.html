@@ -15,12 +15,12 @@
 </head>
 <body>
     <header class="row">  <!--Area for Score area, start button, and help information.-->
-        <div id="score_area" class="col-4"><!--Score Area -->
+        <div id="score_area" class="col-8 col-sm-4 row-no-gutters"><!--Score Area -->
             Current Sequence: <span id="sequence_current">--</span>
             <br>
             Best Sequence: <span id="sequence_best">0</span>
         </div>
-        <div id="button_div" class="col-4">
+        <div id="button_div" class="col-12 col-sm-4 order-2 order-sm-1 row-no-gutters">
             <button id="start_button" onclick="startToStop();startGame()" type="button" class="btn btn-primary btn-lg central_btn"> <!--Start Button-->
                 Start
             </button>
@@ -33,7 +33,7 @@
             </div>   
 
         </div>
-        <div id="Help_Area" class="col-4" > <!--Help-->
+        <div id="Help_Area" class="col-4 col-sm-4 order-1 order-sm-2 row-no-gutters" > <!--Help-->
             <a id="btno" data-toggle="modal" data-target="#myModal"> <!--Information and help triggered Modal-->
                 <i class="fa fa-info-circle fa-xl" aria-hidden="true"></i>Help
             </a>       
