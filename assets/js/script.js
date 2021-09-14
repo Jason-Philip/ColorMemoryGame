@@ -160,6 +160,7 @@ function CloseReset() {
 function nextLevel() {
     difficulty += 1;
     output.innerHTML = difficulty;
+    slider.value = difficulty;
     startGame();
 }
 
