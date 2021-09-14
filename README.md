@@ -1,23 +1,25 @@
 <h1 align="center">Colourful Memory</h1>
 
+![Responsive Website Mockup](assets/readme-imgs/mymockup.png)
+
 [View the live project here.](https://jason-philip.github.io/ColorMemoryGame/)
 
-A sequence and memory testing game that uses a 3x3 grid pattern of squares that light up in random order with a random colour.  The user must remember this order and color executing it back using clicks and color selection.  The site will provide a peaceful and focused place for the user to challenge themselves and have fun.
+A sequence and memory testing game that uses a 3x3 grid pattern of squares that light up in random order with a random color.  The user must remember this order and color executing it back using clicks and color selection.  The site will provide a peaceful and focused place for the user to challenge themselves and have fun.
 
 ## Code validation
 
 - HTML
-    - My HTML files were checked using [W3C validator](https://validator.w3.org/#validate_by_uri) and came back with no major issue
+    - My HTML files were checked using [W3C validator](https://validator.w3.org/#validate_by_uri) 
 
     ![HTML validator]()
 
 - CSS
-    - My CSS files were checked using [W3C CSS validator](https://jigsaw.w3.org/css-validator/validator) and came back with no major issues
+    - My CSS files were checked using [W3C CSS validator](https://jigsaw.w3.org/css-validator/validator) 
 
     ![CSS validator]()
 
 - JavaScript
-    - My JS files were checked using [JS-hint](https://jshint.com/) and came back with no major issues
+    - My JS files were checked using [JS-hint](https://jshint.com/)
 
     ![Java Script checker]()
 
@@ -30,15 +32,28 @@ A sequence and memory testing game that uses a 3x3 grid pattern of squares that 
 
 ## Design
 -   ### Wireframes
-    The wireframes from the initial design stage can be found [wireframes](assests/readme-imgs/wireframes.png)
--   ### Colour Scheme
-     
+    The wireframes from the initial design stage can be found [wireframes](assets/readme-imgs/wireframes.png)
+
+-   ### Color and Style Selection
+    The approach to the style of the site was minimalist so that the user can be fully focused on the challenge.  A off-white color was used for the background to not strain the eye.  For the color flashes primary colors were used to avoid confusion and make clear the pattern.  All buttons are styled to hint at their purpose paintbrush is red, to apply red paint.  The 3x3 pattern was kept as large as possible screensize permitting, while maintaining its distinctive squares.
 
 -   ### Features
+    -   #### Modals
+    Onload the help modal pop-up triggers so the user can familiarise themselves with the rules (Recommended by user feedback).
+    A modal will play in the event of a loss explaining to the user they have failed and what they did wrong using JS.  Two buttons allow the user to chose their next action try-again at same difficulty or close change difficulty.
+    On the event of a win the pop-up modal will inform you as such and button offer increase the difficulty or close to change difficulty.
+    -   #### Sequence (The Challenge)
+    Using the range slider a sensible difficulty can be selected, determining the length of the sequence, this is by default set to 2; the lowest difficulty.  Once start is pressed the pattern will play a random sequence of positions in the 3x3 and colors, with the tiles disabled during this pattern.  Once completed the tiles are re-activated and the user enters their guess.  
+    -   ### Paintbrushes
+    Color is a big part of the game, under the 3x3 grid the colors can be quickly selected so the user can match their guesses quickly.  A curent color area makes it easy to check what color is selected.
+    -   ### Tracking Progress
+    On the top left the current round and highest successful sequence are tracked by Js. 
 
 -   ### Future Features 
+    In the future other cognitive challenges could be offerred with a central connecting navpage recording scores and enabling easy transition to challenges.  Also for this particulr game a removal of the colors could be added for a different experience and as an option for the colorblind.
 
 ## Technologies Used
+
 
 ### Languages Used
 
@@ -69,9 +84,6 @@ A sequence and memory testing game that uses a 3x3 grid pattern of squares that 
     - Am I responsive site was used as a presentation aid in this readme file.
 
 # Testing
-
-
-
 ## User stories
 
 ## User Feedback
