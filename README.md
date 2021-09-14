@@ -85,8 +85,43 @@ A sequence and memory testing game that uses a 3x3 grid pattern of squares that 
 
 # Testing
 ## User stories
+### Testing User Stories from User Experience (UX) Section
+
+1. The site should be simple to understand and easy to engage with, even without detailed reading of the instructions.
+
+    - The initial pop-up dispays the instructions so the userknows what the game is about.  
+    - The minimalist design allows user to see the main elements of the game, leading to better understanding.
+    - Help is available on click so the instructions can be reconsulted.
+    - The start/stop button operates the game immediately so the user can learn through trial and error without punishment ingame or through time delay. 
+    - When a sequence is not started the user is still allowed to press the buttons for a colorful response allowing them to familiarize themselves with the setup.
+
+2. The content should meet the requierement of challenging a range of skill levels with a lower-end of difficulty that all will be able to perform and upper-end that only the best memory can meet.
+
+    - The difficulty slider allows for interactive selection of difficulty ranging from sequences of two (easy) to twelve(near impossible).  
+    - On page load the default difficulty is 2 allowing the user to succeed at these lower difficulty allows for everyone to come away with some sense of accomplishment.  These lower difficulties can also be completed by the most skilled individuals quickly, avoiding any frustration.
+
+3. The atmosphere of the background and interactions should be undistracting and subdued, so that the user can stay focused and concentrate on the game 
+
+    - The site is minimalist with an off-white background allowing for easy viewing and avoiding any clutter that could distract the user from the challenge.
+
+4. The user will want unobtrusive confirmation of how they are performing and what they did right or wrong.
+
+    - The user is informed of win or loss by modal pop-up only when the whole pattern is completed.
+    - The loss modal tells the user where they went wrong, with either the color or position or both.
+    - The slider updates on sucess so the user can visually see their progress through the levels as the go.
+    - The users best score is recorded in text at the top right corner so they know what to beat.
+
+5. The user should not have to worry about causing a problem in game logic, while using the site.
+
+    - The user is not allowed to interfere when the pattern is playing, by accidental click or curiosity.  
+    - Testing of all the interactive features before, during and after sequence playing has been performed to ensure no accidental interference.
 
 ## User Feedback
+
+    User feedback was given by my Mentor, family and friends they reported the following:
+        - Unclear the purpose of the game when initially started, this was remedied by launching the help modal at the start of the game.
+        - Prefer to start at a low difficulty (during testing the difficulty was set to 4), the default is now 2.
+        - Would like to visually see progess.  In response the slider was updated on each sucessful level-up.
 
 ## feature and Logic testing
 
