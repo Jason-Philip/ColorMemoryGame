@@ -125,8 +125,12 @@ A sequence and memory testing game that uses a 3x3 grid pattern of squares that 
 
 ## feature and Logic testing
 
-
-## Responsiveness
+    -   The two primary places of testing were on developer tools on mozilla firefox and microsoft edge, using the element selector most positioning, margin and padding issues were tested here first.
+    -   The Website was tested on Google Chrome, Internet Explorer, and Safari browsers also.
+    -   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX and resized from a large range of sizes in web developer tools to ensure responsive design across the board.
+    -   A large amount of testing was done to ensure that all pages were linking correctly.
+    -   logs in the console allowed for viewing of arrays and variables in developer tools to ensure the logic was performing correctly.
+    -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
 # Bug Fixes
 
