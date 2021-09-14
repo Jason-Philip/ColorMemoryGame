@@ -103,9 +103,19 @@ a {
   }
   .square {
     height: 110px;
+    border-width: 3px;
   }
   #score_area {
     text-align: left;
     left: 10px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .challenge_area {
+    width: 270px;
+  }
+  .square {
+    height: 90px;
+    border-width: 2px;
   }
 }

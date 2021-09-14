@@ -26,16 +26,17 @@ A sequence and memory testing game that uses a 3x3 grid pattern of squares that 
     2. The content should meet the requierement of challenging a range of skill levels with a lower-end of difficulty that all will be able to perform and upper-end that only the best memory can meet.
     3. The atmosphere of the background and interactions should be undistracting and subdued, so that the user can stay focused and concentrate on the game 
     4. The user will want unobtrusive confirmation of how they are performing and what they did right or wrong.
+    5. The user should not have to worry about causing a problem in game logic, while using the site.
 
 ## Design
--   #### Wireframes
+-   ### Wireframes
     The wireframes from the initial design stagecan be found [here]()
--   #### Colour Scheme
+-   ### Colour Scheme
      
 
--   #### Features
+-   ### Features
 
--   #### Future Features
+-   ### Future Features
 
 ## Technologies Used
 
