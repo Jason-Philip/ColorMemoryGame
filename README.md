@@ -6,24 +6,6 @@
 
 A sequence and memory testing game that uses a 3x3 grid pattern of squares that light up in random order with a random color.  The user must remember this order and color executing it back using clicks and color selection.  The site will provide a peaceful and focused place for the user to challenge themselves and have fun.
 
-## Code validation
-
-- HTML
-    - My HTML files were checked using [W3C validator](https://validator.w3.org/#validate_by_uri) 
-
-    ![HTML validator](assets/readme-imgs/htmlvalidator.png)
-
-- CSS
-    - My CSS files were checked using [W3C CSS validator](https://jigsaw.w3.org/css-validator/) 
-
-    ![CSS validator](assets/readme-imgs/cssvalidator.png)
-
-- JavaScript
-    - My JS files were checked using [JS-hint](https://jshint.com/)
-
-    ![Java Script checker](assets/readme-imgs/jschecker.png)
-    Warning is necessary for game logic
-
 ## User Experience Goals (UX)
 1. The site should be simple to understand and easy to engage with, even without detailed reading of the instructions.
 2. The content should meet the requierement of challenging a range of skill levels with a lower-end of difficulty that all will be able to perform and upper-end that only the best memory can meet.
@@ -132,6 +114,24 @@ User feedback was given by my Mentor, family and friends they reported the follo
 -   A large amount of testing was done to ensure that all pages were linking correctly.
 -   logs in the console allowed for viewing of arrays and variables in developer tools to ensure the logic was performing correctly.
 -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
+
+## Code validation
+
+- HTML
+    - My HTML files were checked using [W3C validator](https://validator.w3.org/#validate_by_uri) 
+
+    ![HTML validator](assets/readme-imgs/htmlvalidator.png)
+
+- CSS
+    - My CSS files were checked using [W3C CSS validator](https://jigsaw.w3.org/css-validator/) 
+
+    ![CSS validator](assets/readme-imgs/cssvalidator.png)
+
+- JavaScript
+    - My JS files were checked using [JS-hint](https://jshint.com/)
+
+    ![Java Script checker](assets/readme-imgs/jschecker.png)
+    Warning is necessary for game logic
 
 # Bug Fixes and Problems Encountered
 
