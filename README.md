@@ -14,7 +14,7 @@ A sequence and memory testing game that uses a 3x3 grid pattern of squares that 
     ![HTML validator]()
 
 - CSS
-    - My CSS files were checked using [W3C CSS validator](https://jigsaw.w3.org/css-validator/validator) 
+    - My CSS files were checked using [W3C CSS validator](https://jigsaw.w3.org/css-validator/) 
 
     ![CSS validator]()
 
@@ -24,11 +24,11 @@ A sequence and memory testing game that uses a 3x3 grid pattern of squares that 
     ![Java Script checker]()
 
 ## User Experience Goals (UX)
-    1. The site should be simple to understand and easy to engage with, even without detailed reading of the instructions.
-    2. The content should meet the requierement of challenging a range of skill levels with a lower-end of difficulty that all will be able to perform and upper-end that only the best memory can meet.
-    3. The atmosphere of the background and interactions should be undistracting and subdued, so that the user can stay focused and concentrate on the game 
-    4. The user will want unobtrusive confirmation of how they are performing and what they did right or wrong.
-    5. The user should not have to worry about causing a problem in game logic, while using the site.
+1. The site should be simple to understand and easy to engage with, even without detailed reading of the instructions.
+2. The content should meet the requierement of challenging a range of skill levels with a lower-end of difficulty that all will be able to perform and upper-end that only the best memory can meet.
+3. The atmosphere of the background and interactions should be undistracting and subdued, so that the user can stay focused and concentrate on the game 
+4. The user will want unobtrusive confirmation of how they are performing and what they did right or wrong.
+5. The user should not have to worry about causing a problem in game logic, while using the site.
 
 ## Design
 -   ### Wireframes
@@ -118,21 +118,128 @@ A sequence and memory testing game that uses a 3x3 grid pattern of squares that 
 
 ## User Feedback
 
-    User feedback was given by my Mentor, family and friends they reported the following:
-        - Unclear the purpose of the game when initially started, this was remedied by launching the help modal at the start of the game.
-        - Prefer to start at a low difficulty (during testing the difficulty was set to 4), the default is now 2.
-        - Would like to visually see progess.  In response the slider was updated on each sucessful level-up.
+User feedback was given by my Mentor, family and friends they reported the following:
+-   Unclear the purpose of the game when initially started, this was remedied by launching the help modal at the start of the game.
+-   Prefer to start at a low difficulty (during testing the difficulty was set to 4), the default is now 2.
+-   Would like to visually see progess.  In response the slider was updated on each sucessful level-up.
 
 ## feature and Logic testing
 
-    -   The two primary places of testing were on developer tools on mozilla firefox and microsoft edge, using the element selector most positioning, margin and padding issues were tested here first.
-    -   The Website was tested on Google Chrome, Internet Explorer, and Safari browsers also.
-    -   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX and resized from a large range of sizes in web developer tools to ensure responsive design across the board.
-    -   A large amount of testing was done to ensure that all pages were linking correctly.
-    -   logs in the console allowed for viewing of arrays and variables in developer tools to ensure the logic was performing correctly.
-    -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
+-   The two primary places of testing were on developer tools on mozilla firefox and microsoft edge, using the element selector most positioning, margin and padding issues were tested here first.
+-   The Website was tested on Google Chrome, Internet Explorer, and Safari browsers also.
+-   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX and resized from a large range of sizes in web developer tools to ensure responsive design across the board.
+-   A large amount of testing was done to ensure that all pages were linking correctly.
+-   logs in the console allowed for viewing of arrays and variables in developer tools to ensure the logic was performing correctly.
+-   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
-# Bug Fixes
+# Bug Fixes and Problems Encountered
+
+###  - Bug: 
+User could interfere with the played pattern.
+###  - Fix: 
+The solution was to remove the event listeners from the 3x3 squares and return them after the sequence had completed.  Ensuring attempts at the sequence cant be made during this stage.  This was performed by a loop acting on every square (included in the squares array).
+    
+    for (let i = 0; i < 9; i++) {  /*Prevents interference from user when pattern plays.*/
+        squares[i].removeEventListener("click", flashSquareClick);
+        squares[i].removeEventListener("click", UserAttempt);
+    }
+    createPattern();
+    triggerPattern();
+
+    p = [];  //Array to hold timeout of reinitializing eventlisteners so they can be cancelled
+    for (let i = 0; i < 9; i++) {
+        p[i] = setTimeout(function () {
+            squares[i].addEventListener("click", flashSquareClick);
+            squares[i].addEventListener("click", UserAttempt);
+            }, 500*(difficulty+1)+(500*difficulty)-1000)  //Timeing allows for full pattern to play without interference
+    console.log(500*(difficulty+1)+(500*difficulty));
+    }
+
+###  - Bug: 
+If the user clicked start/stop multiple times in quick succession several sequences would play.
+###  - Fix: 
+By adding a onclick function to the stop button that prevented all future flashes and cancelled the current flash.  This was achieved by clearing the timeout functions of the flashes.  The color background of the squares was also removed to stop the current flash.   This function was called stopFlash().  
+
+    /*Cancels all flashes and prevents the sequence playing*/
+    function stopFlash() {
+        $(".square").removeClass("red_background").removeClass("green_background").removeClass("blue_background");  //Stopping current flash
+        for (let i = 0; i < difficulty; i++) {
+            clearTimeout(a[i]);  //Preventing adding color
+        }
+    }
+
+###  - Bug: 
+Event listeners applying at the wrong times
+###  - Fix: 
+By adding to the stopFlash() function all eventlisteners in timeouts could be turned so that a new sequence could trigger fully undisturbed.  
+
+    function stopFlash() {
+        $(".square").removeClass("red_background").removeClass("green_background").removeClass("blue_background");  //Stopping current flash
+        for (let i = 0; i < difficulty; i++) {
+            clearTimeout(a[i]);  //Preventing adding color
+        }
+        for (let i = 0; i < difficulty; i++) { 
+            clearTimeout(b[i]);  //Preventing removing color
+        }
+        for (let i = 0; i < 9; i++) {
+            clearTimeout(p[i]);
+            squares[i].addEventListener("click", flashSquareClick); //reapply all squares clicking 
+            squares[i].addEventListener("click", UserAttempt);
+        }
+    }
+
+###  - Bug: 
+Slider was not presenting any information
+###  - Fix: 
+Adding a on input function and the this value, so a number would be presented beside the slider.
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+        difficulty = Number(this.value);
+    }
+
+###  - Bug: 
+Modal needed launched onload
+###  - Fix: 
+The help and instruction modal needed launched onload, this was tried with .show() but this made the modal behave differently.  The solution was to use the .click() function instead.
+
+    //Pop-up help modal on launch
+    window.onload = document.getElementById('btno').click();
+
+###  - Bug: 
+Adding in difficulty 
+###  - Fix: 
+To add in difficulty throughout the game the variable difficulty had to be created as a Number() from the value of the slider.  This difficulty was then passed into for loops for generating the random sequences.  The Number() was important as some of the timeouts used maths operators to calculate the delay.
+
+    /* Creates random pattern and records it to lists*/
+    function createPattern() {
+        for (let i = 0; i < difficulty; i++) {
+            let randColor = colors[Math.floor(Math.random() * 3)];
+
+            colorSequence.push(randColor);
+        }
+        console.log(colorSequence);
+        for (let i = 0; i < difficulty; i++) {
+            let randtile = Math.floor(Math.random() * 9);
+
+            squareSequence.push(randtile);
+        console.log(squareSequence);
+        } 
+    }
+
+###  - Current Bug: 
+Delay inaccuracy
+###  - Fix: 
+During the timeout for re-adding the eventlisteners a calculation is performed using the Number(difficulty) variable this delay although technically equal to the needed delay doesn't manifest when the game operates.  The tiles remain inactive for a second after the sequence finishes.  This can be very off-putting for user experience, as the user has spent time rememberring the pattern and when the first click is made it doesn't work.  To air on the safe side a second was taken off the timeout (see the -1000 in code) to ensure when the user clicked they would be able to make their first guess.
+
+    for (let i = 0; i < 9; i++) {
+        p[i] = setTimeout(function () {
+            squares[i].addEventListener("click", flashSquareClick);
+            squares[i].addEventListener("click", UserAttempt);
+            }, 500*(difficulty+1)+(500*difficulty)-1000)  //Timeing allows for full pattern to play without interference
+    console.log(500*(difficulty+1)+(500*difficulty));
+    }
 
 
 # Deployment
