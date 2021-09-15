@@ -11,17 +11,18 @@ A sequence and memory testing game that uses a 3x3 grid pattern of squares that 
 - HTML
     - My HTML files were checked using [W3C validator](https://validator.w3.org/#validate_by_uri) 
 
-    ![HTML validator]()
+    ![HTML validator](assets/readme-imgs/htmlvalidator.png)
 
 - CSS
     - My CSS files were checked using [W3C CSS validator](https://jigsaw.w3.org/css-validator/) 
 
-    ![CSS validator]()
+    ![CSS validator](assets/readme-imgs/cssvalidator.png)
 
 - JavaScript
     - My JS files were checked using [JS-hint](https://jshint.com/)
 
-    ![Java Script checker]()
+    ![Java Script checker](assets/readme-imgs/jschecker.png)
+    Warning is necessary for game logic
 
 ## User Experience Goals (UX)
 1. The site should be simple to understand and easy to engage with, even without detailed reading of the instructions.

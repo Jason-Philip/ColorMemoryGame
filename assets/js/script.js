@@ -1,10 +1,19 @@
-let colors = ["blue", "red", "green"]
+
+let colors = ["blue", "red", "green"];
 let colorSequence = [];
 let squareSequence = [];
 let userEntryPosition = [];
 let userEntryColor = [];
 let modal1 = document.getElementById("loseModal");
 let modal2 = document.getElementById("winModal");
+
+let slider = document.getElementById("slider");
+let output = document.getElementById("showDif");
+let best = document.getElementById("sequence_best");
+let current = document.getElementById("sequence_current");
+let whatWrong = document.getElementById("what_wrong");
+output.innerHTML = slider.value; // Display the default slider value
+difficulty = Number(slider.value);
 
 /* Triggered when start in clicked allowing the game to begin*/
 function startGame() {
@@ -25,12 +34,12 @@ function startGame() {
     createPattern();
     triggerPattern();
 
-    p = [];
+    let p = [];  //Array to hold timeout of reinitializing eventlisteners so they can be cancelled
     for (let i = 0; i < 9; i++) {
         p[i] = setTimeout(function () {
             squares[i].addEventListener("click", flashSquareClick);
             squares[i].addEventListener("click", UserAttempt);
-            }, 500*(difficulty+1)+(500*difficulty)-1000)
+            }, 500*(difficulty+1)+(500*difficulty)-1000);  //Timeing allows for full pattern to play without interference
     console.log(500*(difficulty+1)+(500*difficulty));
     }
 }
@@ -51,8 +60,8 @@ function createPattern() {
 }
 /*Pattern occurs with random colors in random sequence*/
 function triggerPattern() {
-    a = []  /*Arrays for the purpose of cancelling flashes in stopFlash()*/
-    b = []
+    a = [];  /*Arrays for the purpose of cancelling flashes in stopFlash()*/
+    b = [];
     for (let i = 0; i < difficulty; i++) {
         let whichTile = squareSequence[i];
         let idOfTile = "#square_" + whichTile;
@@ -64,12 +73,12 @@ function triggerPattern() {
 /*Flash Square Pattern*/
 function flashSquarePattern(n, idTile) {
     let v = $(idTile);
-    let colorNow = colorSequence[n] + "_background"
+    let colorNow = colorSequence[n] + "_background";
     console.log(v);
 
     a[n] = setTimeout(function () {
         v.addClass(colorNow);
-        }, 1000*n)
+        }, 1000*n);
     b[n] = setTimeout(function () {
         v.removeClass(colorNow);
         }, 500*(n+1)+(500*n)); 
@@ -110,21 +119,21 @@ function UserAttempt() {
 function checkRight() {
     let correctPosition = false;
     let correctColor = false;
-    for (where in userEntryPosition){
+    for (var where in userEntryPosition){
         if (userEntryPosition[where]==squareSequence[where]){
             correctPosition = true;
         }  else {
             correctPosition = false;
-            break
+            break;
         }
     }
     console.log(correctPosition);
-    for (color in userEntryColor){
+    for (var color in userEntryColor){
         if (userEntryColor[color]==colorSequence[color]){
             correctColor = true;
         }  else {
             correctColor = false;
-            break
+            break;
         }
     }
     console.log(correctColor);
@@ -136,11 +145,11 @@ function checkRight() {
 /* Triggered when the enterred color/pattern is incorrect and offer try again or close*/
 function WrongEntry(one, two) {
     if (one) {
-        whatWrong.innerHTML = "the color right but the position wrong,"
+        whatWrong.innerHTML = "the color right but the position wrong,";
     } else if (two) {
-        whatWrong.innerHTML = "the position right but the wrong color,"
+        whatWrong.innerHTML = "the position right but the wrong color,";
     } else {
-        whatWrong.innerHTML = "both the color and the position wrong,"
+        whatWrong.innerHTML = "both the color and the position wrong,";
     }
     modal1.style.display = "block";
 }
@@ -156,7 +165,7 @@ function RightEntry() {
 function CloseReset() {
     modal1.style.display = "none";
     modal2.style.display = "none";
-    stopToStart()
+    stopToStart();
 }
 
 /*Plays next level if possible*/
@@ -202,16 +211,16 @@ function changeColor() {
 
 /*Cancels all flashes and prevents the sequence playing*/
 function stopFlash() {
-    $(".square").removeClass("red_background").removeClass("green_background").removeClass("blue_background");
+    $(".square").removeClass("red_background").removeClass("green_background").removeClass("blue_background");  //Stopping current flash
     for (let i = 0; i < difficulty; i++) {
-        clearTimeout(a[i]);
+        clearTimeout(a[i]);  //Preventing adding color
     }
     for (let i = 0; i < difficulty; i++) { 
-        clearTimeout(b[i]);
+        clearTimeout(b[i]);  //Preventing removing color
     }
     for (let i = 0; i < 9; i++) {
         clearTimeout(p[i]);
-        squares[i].addEventListener("click", flashSquareClick);
+        squares[i].addEventListener("click", flashSquareClick);  //reapply all squares clicking
         squares[i].addEventListener("click", UserAttempt);
     }
 }
@@ -228,18 +237,11 @@ for (let i = 0; i < 9; i++) {
     squares[i].addEventListener("click", UserAttempt);
 }
 
-let slider = document.getElementById("slider");
-let output = document.getElementById("showDif");
-let best = document.getElementById("sequence_best");
-let current = document.getElementById("sequence_current");
-let whatWrong = document.getElementById("what_wrong");
-output.innerHTML = slider.value; // Display the default slider value
-difficulty = Number(slider.value);
-
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
     output.innerHTML = this.value;
     difficulty = Number(this.value);
-}
+};
 
+//Pop-up help modal on launch
 window.onload = document.getElementById('btno').click();
