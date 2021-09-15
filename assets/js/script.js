@@ -13,6 +13,8 @@ let best = document.getElementById("sequence_best");
 let current = document.getElementById("sequence_current");
 let whatWrong = document.getElementById("what_wrong");
 
+let p = [];  //Array to hold timeout of reinitializing eventlisteners so they can be cancelled
+
 output.innerHTML = slider.value; // Display the default slider value
 difficulty = Number(slider.value);  // Difficulty determines number in sequence
 
