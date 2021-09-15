@@ -1,4 +1,4 @@
-
+/*Defining Variabl*/
 let colors = ["blue", "red", "green"];
 let colorSequence = [];
 let squareSequence = [];
@@ -12,8 +12,9 @@ let output = document.getElementById("showDif");
 let best = document.getElementById("sequence_best");
 let current = document.getElementById("sequence_current");
 let whatWrong = document.getElementById("what_wrong");
+
 output.innerHTML = slider.value; // Display the default slider value
-difficulty = Number(slider.value);
+difficulty = Number(slider.value);  // Difficulty determines number in sequence
 
 /* Triggered when start in clicked allowing the game to begin*/
 function startGame() {
@@ -225,12 +226,14 @@ function stopFlash() {
     }
 }
 
-/*Event listeners*/ 
+/*Event listeners 
+Select the color*/
 let brushes = $(".fa-paint-brush");
 for (let i = 0; i < 3; i++) {
     brushes[i].addEventListener("click", changeColor);
 }
 
+/*User operating the tiles*/
 let squares = $(".square");
 for (let i = 0; i < 9; i++) {
     squares[i].addEventListener("click", flashSquareClick);
